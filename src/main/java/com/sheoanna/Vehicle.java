@@ -15,5 +15,5 @@ public class Vehicle {
 
     public int getAxlesNumber() {
         return axlesNumber;
-    } 
+    }
 }

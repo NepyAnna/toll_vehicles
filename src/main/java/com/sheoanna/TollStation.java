@@ -1,5 +1,6 @@
 package com.sheoanna;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TollStation {
@@ -13,19 +14,28 @@ public class TollStation {
         this.name = name;
         this.city = city;
         this.totalToll = 0;
-        this.tollRate = 50;  
+        this.tollRate = 50;
+        this.reports = new ArrayList<>();
     }
 
-    public void calculateToll(Vehicle vesicle) {
-        float toll = vesicle.getAxlesNumber() * this.tollRate;
+    public void calculateToll(Vehicle vehicle) {
+        float toll = vehicle.getAxlesNumber() * this.tollRate;
+        totalToll += toll;
+        addReport(vehicle, toll);
     }
 
-    public void addRepport(Vehicle vesicle){
+    private void addReport(Vehicle vehicle, float toll){
         String report = "";
 
+        report += "\n" + "Vehicles with License Number: " + vehicle.getLicenseNumber();
+        report += "\n" + "Axles Number: " + vehicle.getAxlesNumber();
+        report += "\n" + "Custom toll amounted: " + toll + " $\n";
+        this.reports.add(report);
+    }
 
-        report += "Vehicles" + vesicle.getLicenseNumber() + "\n";
-        report += vesicle.getAxlesNumber();
-
+    public void printReport(){
+        System.out.println("\nStation" + this.name + " in " + this.city + ":");
+        reports.forEach(System.out::println);
+        System.out.println("Total toll amount: " + this.totalToll + " $\n");
     }
 }
