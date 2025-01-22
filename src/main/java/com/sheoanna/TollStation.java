@@ -3,6 +3,8 @@ package com.sheoanna;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sheoanna.vehicles.Vehicle;
+
 public class TollStation {
     private String name;
     private String city;
