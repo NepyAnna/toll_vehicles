@@ -1,6 +1,5 @@
 package com.sheoanna;
 
-import com.sheoanna.vehicles.Vehicle;
 
 /**
  * Hello world!

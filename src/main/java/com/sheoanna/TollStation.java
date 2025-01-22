@@ -9,34 +9,30 @@ public class TollStation {
     private String name;
     private String city;
     private float totalToll;
-    private float tollRate;
     private List<String> reports;
 
-    public TollStation(String name, String city){
+    public TollStation(String name, String city) {
         this.name = name;
         this.city = city;
         this.totalToll = 0;
-        this.tollRate = 50;
         this.reports = new ArrayList<>();
     }
 
     public void calculateToll(Vehicle vehicle) {
-        float toll = vehicle.getAxlesNumber() * this.tollRate;
+        float toll = vehicle.calculateToll();
         totalToll += toll;
         addReport(vehicle, toll);
     }
 
-    private void addReport(Vehicle vehicle, float toll){
+    private void addReport(Vehicle vehicle, float toll) {
         String report = "";
-
-        report += "\n" + "Vehicles with License Number: " + vehicle.getLicenseNumber();
-        report += "\n" + "Axles Number: " + vehicle.getAxlesNumber();
-        report += "\n" + "Custom toll amounted: " + toll + " $\n";
+        report += "\n" + "Vehicle with License Number: " + vehicle.getLicenseNumber();
+        report += "\n" + "Toll Amount: " + toll + " $\n";
         this.reports.add(report);
     }
 
-    public void printReport(){
-        System.out.println("\nStation" + this.name + " in " + this.city + ":");
+    public void printReport() {
+        System.out.println("\nStation: " + this.name + " in " + this.city + ":");
         reports.forEach(System.out::println);
         System.out.println("Total toll amount: " + this.totalToll + " $\n");
     }
