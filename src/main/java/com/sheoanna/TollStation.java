@@ -18,6 +18,22 @@ public class TollStation {
         this.reports = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public float getTotalToll() {
+        return totalToll;
+    }
+
+    public List<String> getReports() {
+        return reports;
+    }
+
     public void calculateToll(Vehicle vehicle) {
         float toll = vehicle.calculateToll();
         totalToll += toll;
