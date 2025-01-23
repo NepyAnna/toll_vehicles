@@ -25,7 +25,7 @@ public class TollStationTest {
         tollStation = new TollStation("BTS", "BILBAO");
         car = new Car("AA1234BB");
         moto = new Motorcycle("XYZ456");
-        truck = new Truck("LMN789", 8); 
+        truck = new Truck("LMN789", 8);
     }
 
     @Test
@@ -50,28 +50,28 @@ public class TollStationTest {
     }
 
     @Test
-public void testPrintReport() {
-    // Redirect System.out to a ByteArrayOutputStream
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    PrintStream originalOut = System.out;
-    System.setOut(new PrintStream(outputStream));
+    public void testPrintReport() {
+        // Redirect System.out to a ByteArrayOutputStream
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outputStream));
 
-    try {
-        tollStation.calculateToll(car);
-        tollStation.calculateToll(moto);
-        tollStation.calculateToll(truck);
-        tollStation.printReport();
+        try {
+            tollStation.calculateToll(car);
+            tollStation.calculateToll(moto);
+            tollStation.calculateToll(truck);
+            tollStation.printReport();
 
-        String output = outputStream.toString();
-        assertTrue(output.contains("Vehicle with License Number: AA1234BB"));
-        assertTrue(output.contains("Vehicle with License Number: XYZ456"));
-        assertTrue(output.contains("Vehicle with License Number: LMN789"));
-        assertTrue(output.contains("Toll Amount: 100.0 $"));
-        assertTrue(output.contains("Toll Amount: 50.0 $"));
-        assertTrue(output.contains("Toll Amount: 400.0 $"));
-        assertTrue(output.contains("Total toll amount: 550.0 $"));
-    } finally {
-        System.setOut(originalOut);
+            String output = outputStream.toString();
+            assertTrue(output.contains("Vehicle with License Number: AA1234BB"));
+            assertTrue(output.contains("Vehicle with License Number: XYZ456"));
+            assertTrue(output.contains("Vehicle with License Number: LMN789"));
+            assertTrue(output.contains("Toll Amount: 100.0 $"));
+            assertTrue(output.contains("Toll Amount: 50.0 $"));
+            assertTrue(output.contains("Toll Amount: 400.0 $"));
+            assertTrue(output.contains("Total toll amount: 550.0 $"));
+        } finally {
+            System.setOut(originalOut);
+        }
     }
-}
 }
