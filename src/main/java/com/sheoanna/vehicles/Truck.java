@@ -5,6 +5,9 @@ public class Truck implements Vehicle {
     private int axlesNumber;
 
     public Truck(String licenseNumber, int axlesNumber) {
+        if (axlesNumber < 6) {
+            throw new IllegalArgumentException("A truck must have at least 6 axles.");
+        }
         this.licenseNumber = licenseNumber;
         this.axlesNumber = axlesNumber;
     }

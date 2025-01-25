@@ -47,9 +47,9 @@ public class TollStation {
         this.reports.add(report);
     }
 
-    public void printReport() {
+    /*public void printReport() {
         System.out.println("\nStation: " + this.name + " in " + this.city + ":");
         reports.forEach(System.out::println);
         System.out.println("Total toll amount: " + this.totalToll + " $\n");
-    }
+    }*/
 }

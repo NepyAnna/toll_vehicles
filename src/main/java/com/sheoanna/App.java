@@ -1,5 +1,7 @@
 package com.sheoanna;
 
+import java.io.IOException;
+
 import com.sheoanna.vehicles.Car;
 import com.sheoanna.vehicles.Motorcycle;
 import com.sheoanna.vehicles.Truck;
@@ -21,13 +23,32 @@ public final class App {
         Vehicle bug = new Car("AA1234BB");
         Vehicle truck = new Truck("LMN789", 8);
 
+
+
         TollStation bilbao = new TollStation("BTS", "Bilbao");
 
         bilbao.calculateToll(moto);
         bilbao.calculateToll(bug);
         bilbao.calculateToll(truck);
 
-        bilbao.printReport();
+         TollStationService tollStationService = new TollStationService("Central Station", "Kyiv");
+        TollStationController controller = new TollStationController(tollStationService);
+
+        try {
+            controller.startServer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*Vehicle moto = new Motorcycle("QRT34562UY");
+        Vehicle bug = new Car("AA1234BB");
+        Vehicle truck = new Truck("LMN789", 8);
+
+        TollStation bilbao = new TollStation("BTS", "Bilbao");
+
+        bilbao.calculateToll(moto);
+        bilbao.calculateToll(bug);
+        bilbao.calculateToll(truck);*/
+
       
     }
 }
