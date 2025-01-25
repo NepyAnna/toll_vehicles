@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -51,7 +52,10 @@ public class TollStationTest {
 
     @Test
     public void testPrintReport() {
-        // Redirect System.out to a ByteArrayOutputStream
+        String tollStationName = tollStation.getName();
+        String tollStationCity = tollStation.getCity();
+        List<String> tollStationReports =  tollStation.getReports();
+
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outputStream));
